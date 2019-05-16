@@ -1,0 +1,9 @@
+capitalize
+fz
+fzf
+base64-encode-string
+e/string-reverse
+e/q
+qftln
+uqftln
+bp c ascify

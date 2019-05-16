@@ -1,0 +1,265 @@
+scrape-words-from-string.pl -r '[^"<>]+' | filter-urls.sh
+get-1-grams.sh
+sed 's/\s\+/\n/g' | sed '/^$/d'                                                                                    # split by whitespace
+extract-queries-from-google-url-contained.sh
+dedup-prefixes.sh
+dedup-prefixes.sh " "                                                                                              # dedup with spaces whitespace
+minimise.sh
+unminimise.sh
+cat
+scrape-words-from-string.pl | sed '/^$/d'
+scrape-words-from-string.pl -r '\w+' | sed '/^$/d'
+scrape-words-from-string.pl -r '\w+' | sort | uniq | sed '/^$/d'                                                   # words sorted uniquely
+scrape-words-from-string.pl -r '\w+' | sort | sed '/^$/d'                                                          # words sorted, just words (non-u)
+scrape-words-from-string.pl -r '[^ ]+' | sed '/^$/d'                                                               # full words - split by whitespace
+filter-partial-paths.sh | consecutive-combinations.py | print-line-if-path-exists.sh | sort | uniq
+filter-partial-paths.sh | print-line-if-path-exists.sh
+scrape-words-from-string.pl -r '\d+' | sed '/^$/d'                                                                 # digits
+scrape-words-from-string.pl -r '\d+' | sort | uniq | sed '/^$/d'                                                   # digits sorted unique
+scrape-words-from-string.pl -r '[A-Z_]+' | sed '/^$/d'                                                             # capital words
+scrape-words-from-string.pl -r '[a-zA-Z]+' | sed '/^$/d'                                                           # alphabetical
+scrape-words-from-string.pl -r '[a-zA-Z0-9]+' | sed '/^$/d'                                                        # alphanumeric
+scrape-words-from-string.pl -r '[a-zA-Z0-9_]+' | sed '/^$/d'                                                       # word chars alphanumeric underscore
+scrape-words-from-string.pl -r '[a-zA-Z0-9-]+' | sed '/^$/d'                                                       # word chars alphanumeric dash
+word-chars-alphanumeric-dash-underscore-dash.sh
+scrape-words-from-string.pl -r '[0-9.]+' | sed '/^$/d'                                                             # float
+split-by-non-paths.sh
+sort                                                                                                               # simple only
+sort -d                                                                                                            # dictionary alphanumeric only
+sort -h                                                                                                            # human simple only
+uniq                                                                                                               # simple only
+sort | uniq                                                                                                        # simple
+uniqnosort.sh                                                                                                      # nosort uniq unchanged
+uniqnosort-reverse.sh                                                                                              # nosort uniq reverse unchanged
+remove-comment-lines-after-first-line.sh
+sed 's/\$/\\\$/g'                                                                                                  # escape dollar
+sed '/^$/d'                                                                                                        # remove empty lines
+remove-leading-and-trailing-spaces.sh
+remove-trailing-spaces.sh
+remove-leading-and-trailing-spaces.sh | print-field.sh -d '[\t ]*' 1                                               # first   column 1 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d '[\t ]*' 2                                               # second  column 2 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d '[\t ]*' 3                                               # third   column 3 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d '[\t ]*' 4                                               # fourth  column 4 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d '[\t ]*' 5                                               # fifth   column 5 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d '[\t ]*' 6                                               # sixth   column 6 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d '[\t ]*' 7                                               # seventh column 7 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 1                                                    # first   column 1 one space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 2                                                    # second  column 2 one space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 3                                                    # third   column 3 one space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 4                                                    # fourth  column 4 one space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 5                                                    # fifth   column 5 one space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 6                                                    # sixth   column 6 one space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 7                                                    # seventh column 7 one space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 1                                                    # first   column 1 commas
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 2                                                    # second  column 2 commas
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 3                                                    # third   column 3 commas
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 4                                                    # fourth  column 4 commas
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 5                                                    # fifth   column 5 commas
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 6                                                    # sixth   column 6 commas
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 7                                                    # seventh column 7 commas
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' *\t *' 1                                               # first   column 1 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' *\t *' 2                                               # second  column 2 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' *\t *' 3                                               # third   column 3 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' *\t *' 4                                               # fourth  column 4 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' *\t *' 5                                               # fifth   column 5 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' *\t *' 6                                               # sixth   column 6 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d ' *\t *' 7                                               # seventh column 7 tabs
+htmlentities-decode.sh                                                                                             # decode htmlentities
+remove-first-field-print-result.sh ' '
+print-line-if-file-exists.sh
+print-line-if-path-exists.sh
+print-line-if-directory-exists.sh
+remove-starting-and-trailing-whitespace.sh                                                                         # remove leading and trailing whitespace
+sed '/\/\.git\//d'                                                                                                 # no git
+delete-up-to.sh :
+delete-up-to.sh ,
+delete-up-to.sh |
+delete-up-to.sh ;
+delete-up-to.sh ,
+unminimise.sh | split-by-non-paths.sh | exact-paths-only.sh                                                        # paths only
+remove-cpp-comments-from-line.sh
+surround-with-quotes.sh
+quote.pl
+quote-no-outside-quotes.pl
+unquote.pl
+uq                                                                                                                 # unquote
+asciionly
+remove-hash-comments.sh
+sed 's/\s*\(\x23.*\)$/ \1/'                                                                                        # remove spaces before hash
+( wd="$(pwd)" 0<&-; umn | sed 's/^'$(echo -n -E "$wd" | sedhex)'//' )                                              # remove leading working directory
+pad-lines-equal-length.sh
+filter-partial-paths.sh | consecutive-combinations.py | print-line-if-path-exists.sh | sort | uniq | fn2dn         # show dirnames / directories
+filter-partial-paths.sh | consecutive-combinations.py | print-line-if-path-exists.sh | sort | uniq | files-only.sh
+fn2dn                                                                                                              # file2dir
+filter-get-git-dirs.sh                                                                                             # get top level git dir per file/folder path
+trim-to-term-column-width.sh                                                                                       # cut columns
+cut -c -80 -                                                                                                       # truncate lines to first 80 characters
+cut -c 1-10                                                                                                        # truncate lines to first 10 characters
+cut -c 1-6 -                                                                                                       # truncate lines to first 6 characters
+sed -n '/\bagi\b/p'
+sed 's/\([0-9]\+\)\([^[0-9]*\)\([0-9]\+\)/\3\2\1/'                                                                 # swap fg and bg decimal
+sed -z 's/^\n\+//'                                                                                                 # remove starting newlines
+sed -z 's/^\s\+//'                                                                                                 # remove starting whitespace lines
+sed -z 's/\n\+$//'                                                                                                 # remove trailing newlines
+sed -z 's/\s\+$//'                                                                                                 # remove trailing whitespace lines
+awk '{ print length, $0 }' | sort -n -s | cut -d" " -f2-                                                           # sort by line length / length of lines
+awk '{ print length, $0 }' | sort -n | cut -d" " -f2-                                                              # sort by line length / length of lines and subsort equal alphabet
+udl -u                                                                                                             # underline and capitalize
+extract-numbers-for-each-line.sh
+tac                                                                                                                # reverse lines order
+reverse-word-order.py
+xargs -l1 basename
+make-regex-filter-from-list.sh
+bc                                                                                                                 # arbitrary precision calculator
+purify-youtube-urls.sh
+no-duplicates.sh
+scrape-words-from-string.pl -r '[a-zA-Z0-9-_]+' | sed '/^$/d' | filter-rtc-issue-ids.sh
+scrape-words-from-string.pl -r '[a-zA-Z0-9-_]+' | sed '/^$/d' | filter-nbo-issue-ids.sh
+scrape-words-from-string.pl -r '[a-zA-Z0-9-_]+' | sed '/^$/d' | filter-jira-issue-ids.sh
+ticket-to-url.sh                                                                                                   # jira urls
+xargs -l1 ca                                                                                                       # cat anything
+xargs -l1 ia                                                                                                       # info anything
+xargs-l1-header.sh scope.sh                                                                                        # scope.sh anything
+scrape-git-hashes.sh                                                                                               # commits
+expand -t8                                                                                                         # expand tabs
+sort -nr                                                                                                           # sort numerically
+sort -k1 -nr                                                                                                       # sort first column numerically
+tr '[:lower:]' '[:upper:]'                                                                                         # uppercase capitalize all caps
+sed 's/[^ _-]*/\u&/g'                                                                                              # uppercase capitalize first letter of each word
+tr '[:upper:]' '[:lower:]'                                                                                         # lowercase insensitive
+sed 's/^/\t/'                                                                                                      # indent
+sed 's/\/$//'                                                                                                      # strip trailing directory slash
+dirs-only.sh                                                                                                       # directories only
+files-only.sh                                                                                                      # files only
+bash -s                                                                                                            # execute line of code in bash
+sed -n '/^[A-Za-z0-9_-]\+/p' | xargs -l1 sdcv                                                                      # get definitions for words
+dos2unix.py
+sum-column.sh -d , -f 4                                                                                            # fourth column comma
+sum-column.sh -d \t -f 4                                                                                           # fourth column tab
+sed 1d                                                                                                             # remove first line
+sed 1,2d                                                                                                           # remove first 2 lines
+head -n -1                                                                                                         # remove last line
+head -n -2                                                                                                         # remove last 2 lines
+dos2unix.sh
+max-one-empty-line.sh
+filter-partial-paths.sh | print-line-if-path-exists.sh | sed -n '/\.\(bas\|cls\|frm\)/p'                           # vb files only
+wrl-get-extensions.sh
+while read line; do echo -E "${line%.*}"; done                                                                     # filenames without extensions
+sed 's/\(\([0-9]\.\)*[0-9]\+\)/"\1"/g'                                                                             # quote numbers digits
+python -c "import urllib, sys ; print urllib.quote_plus(sys.stdin.read())"                                         # url safe string
+python -c "import sys; print [line for line in sys.stdin]"
+htmlentities-encode.sh
+slugify.py
+strip-ansi                                                                                                         # ansi strip. does not need unbuffer -p
+sed 's/[^0-9a-zA-Z]\+/ /g'                                                                                         # split/show words on line. non-alphanumeric to whitespace
+sed 'a\\'                                                                                                          # Double space
+awk '{print; print "";}'                                                                                           # Double space
+sed G                                                                                                              # Double space
+sed '/^$/d;G'                                                                                                      # Double space but no more
+sed 'n;d'                                                                                                          # Undo double spacing
+sed 'G;G'                                                                                                          # Triple space
+sed '/regex/{x;p;x;}'                                                                                              # insert blank line above matching
+sed '/regex/G'                                                                                                     # insert blank line below matching
+sed '/regex/{x;p;x;G;}'                                                                                            # insert blank line above and below matching
+sed '$!N;s/\n/ /'                                                                                                  # join pairs of lines side-by-side. emulates paste
+sed -e :a -e '/\\$/N; s/\\\n//; ta'                                                                                # join lines ending in slash. line continuation character
+sed -n '/regexp/{g;1!p;};h'                                                                                        # print the line before the match
+sed '0~2 a\\'                                                                                                      # Add line after every 2nd line
+awk ' {print;} NR % 2 == 0 { print ""; }'                                                                          # Add line after every 2nd line
+awk 'NR%2'                                                                                                         # print every 2nd line
+awk 'NR%10==0'                                                                                                     # print every 10th line
+sed 's/\s\s\+/\n/g' | sed '/^$/d' | sed -n '/[a-zA-Z0-9]/p'                                                        # split by long adjacent/long/multi-whitespace get meaningful line
+sed 's/[^0-9a-zA-Z ]\+//g'                                                                                         # strip non-alphanumeric
+strip-latex.sh
+sort-by-occurence.sh _                                                                                             # sort tmux sessions by depth
+sort-by-occurence.sh /                                                                                             # sort paths by depth
+sort-by-string-length.sh
+indent 1
+indent 2
+indent 5
+rs 2                                                                                                               # duplicate 2. repeat input. twice
+rs 5                                                                                                               # duplicate 5. repeat input five times
+apply-oneliner-snippets.sh
+ruby -ne 'print $stdin.eof ? $_.strip : $_'                                                                        # chomp last line of stdin remove final newline
+chomp.sh                                                                                                           # chomp last line of stdin remove final newline
+transpose-words.sh                                                                                                 # swap rows and columns by words
+datamash transpose                                                                                                 # swap rows and columns by words
+datamash rmdup 1 2> /dev/null                                                                                      # Remove duplicates rows according to the 1st first column
+datamash rmdup 2 2> /dev/null                                                                                      # Remove duplicates rows according to the 2nd second column
+datamash base64 1 2> /dev/null                                                                                     # Base64 of 1st first column
+datamash md5 1 2>/dev/null                                                                                         # md5 of 1st first column
+datamash base64 2 2> /dev/null                                                                                     # Base64 of 2nd second column
+datamash md5 2 2> /dev/null                                                                                        # md5 of 2nd second column
+transpose-characters.sh                                                                                            # transpose character columns and rows
+py -is "list_of_lists_to_text(T(o(tf(i()))))"                                                                      # transpose character columns and rows
+datamash reverse                                                                                                   # reverse field order
+tac | datamash reverse | datamash transpose                                                                        # reverse word field and column order
+buffer -s 2k                                                                                                       # buffer output in 2 kilobyte chunks to make reading easy. easy re
+haskell-translate.hs
+problog-translate.hs
+awk '{print $NF}'                                                                                                  # last field
+cat -n                                                                                                             # enumerate. line numbers
+awk '{printf("%010d %s\n", NR, $0)}'                                                                               # enumerate. line numbers
+cut-trim-to-screen-width.sh
+perl -pe 's/(\d+)/ 1 + $1 /ge'                                                                                     # increment all numbers by one
+perl -00 -e 'print reverse <>'                                                                                     # reverses paragraphs
+perl -0777 -ne 'print "$.: doubled $_\n" while /\b(\w+)\b\s+\b\1\b/gi'                                             # look for duplicated words in a line
+fold -w 80 -s                                                                                                      # wrap lines to 80 characters
+strip-html-tags.py
+tr '\n' '\0'                                                                                                       # replace newline with NUL
+awk 1                                                                                                              # ensure newline. opposite of chomp
+scrape-files.sh                                                                                                    # this is like partial path file only
+sed -n '$='                                                                                                        # count lines
+sed = | sed 'N;s/\n/\t/'                                                                                           # number each line using a tab
+sed '/^$/N;/\n$/N;//D'                                                                                             # delete consecutive blank lines except for the first 2
+sed '/foo/ s//bar/g'                                                                                               # faster substitution shorthand
+gawk '{printf "%-80s %-s\n", $0, length}'                                                                          # show line length at the end of each line
+mawk '{printf "%-80s %-s\n", $0, length}'                                                                          # show line length at the end of each line. fast execute. doesn't
+awk NF=NF FS=                                                                                                      # 1 space between each character. no trailing
+gawk NF=NF FPAT=.                                                                                                  # 1 space between each character. no trailing
+awk '{while(a=substr($0,++b,1))printf b-1?FS a:a}'                                                                 # 1 space between each character. no trailing. posix
+parse-csv-with-fields-containing-comma.awk
+sed -e ':loop' -e 's/foo//g' -e 't loop'                                                                           # repeat until unchanged
+sed ':a;s/foo//g;ta'                                                                                               # repeat until unchanged
+filter-infolinkclient.sh
+sed -z '$ s/\n$//'                                                                                                 # chomp
+awk "y {print s} {s=\$0;y=1} END {ORS=\"\"; print s}"                                                              # chomp
+sed 's/\r$//'                                                                                                      # dos to unix
+sed 's/$/\r/'                                                                                                      # unix to dos
+awk '{print NR,$0}'                                                                                                # number lines
+remove-c-cpp-comments.awk
+extract-c-cpp-comments.awk                                                                                         # not finished
+nl                                                                                                                 # number lines
+unbuffer -p cat                                                                                                    # example
+timestampify.pl
+timestampify-hr.pl                                                                                                 # Human readable
+tsy                                                                                                                # timestampify
+tsyh                                                                                                               # timestampify- Human readable
+od -cb                                                                                                             # into octal human readable
+u2l                                                                                                                # upper case to lower case
+sed -e 's/\(.*\)/\L\1/'                                                                                            # GNU sed upper case to lower case
+sed -r 's/\w+/\u&/g'                                                                                               # GNU sed camel case sentence \u = upper next character of match
+perl -pe 's/\e\[?.*?[\@-~]//g'                                                                                     # strip all ansi codes
+perl -pe 's/\e\[[\d;]*m//g;'                                                                                       # strip ansi color codes
+strip-ansi-color.py
+perl -pe 's/echo( -E)?(?\! -n)/write/g'                                                                            # turn echo or echo -E into write but not echo -n PCRE negative lo
+sed $'s/[^[:print:]\t]//g'                                                                                         # filter non-printable (including control) characters
+rpl from to                                                                                                        # literal string replace
+esc \$                                                                                                             # escape dollar
+unbuffer -p uniq | sed -u 'n;d'                                                                                    # unbuffered uniq. This doesn't actually do anything because unbuf
+sed -u '$!N; /^\(.*\)\n\1$/!P; D'                                                                                  # deduplicate lines using sed
+ts                                                                                                                 # gnu timestampify
+ts -s                                                                                                              # incrementally stopwatch timer
+ts -i                                                                                                              # delta timer between lines
+pv -l -L100                                                                                                        # 100 lines per second. rate limit lines per second
+text-files-only.sh
+shell-scripts-only.sh
+symlinks-only.sh
+files-only-excluding-symlinks.sh
+bytes-to-human-readable.sh
+racket -e '(for-each displayln (sort (port->lines) string<?))' 	 `                                                 # sort alphabetically`
+rb 'drop(1)'                                                                                                       # remove first line
+rb 'drop(2)'                                                                                                       # remove first 2 lines
+rb '[first]'                                                                                                       # first line
+rb '[first].concat drop(1)'                                                                                        # cat
+filter-facts

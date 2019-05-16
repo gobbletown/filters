@@ -1,0 +1,13 @@
+# i can put this here but I need to find a way to disable the preview
+# for it... Ahhh, when you run the preview, provide an env var to the
+# script.
+tm filter
+
+strip-latex.sh
+
+xargs -l realpath
+xargs -l which
+
+ticket-to-url.sh                                                                         # jira urls
+
+filter-infolinkclient.sh

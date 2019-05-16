@@ -1,0 +1,2 @@
+perl -pe 's/echo( -E)?(?\! -n)/write/g' # turn echo or echo -E into write but not echo -n
+sed 's/hl-string.sh/hls/g'
