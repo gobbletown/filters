@@ -2,8 +2,12 @@ capitalize
 fz
 fzf
 base64-encode-string
+base64-decode-string
 e/string-reverse
 e/q
 qftln
 uqftln
 bp c ascify
+bp xurls | s chomp
+bp ${GOPATH%%:*}/bin/xurls
+json-encode-string

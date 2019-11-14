@@ -1,1 +1,6 @@
-v +/subsort $HOME/notes2018/ws/filters/filters.sh
+v +/subsort $NOTES/ws/filters/filters.sh
+
+* scrapefzf
+#+BEGIN_SRC sh
+  pip show google | sf
+#+END_SRC

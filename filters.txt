@@ -263,3 +263,5 @@ rb 'drop(2)'                                                                    
 rb '[first]'                                                                                                       # first line
 rb '[first].concat drop(1)'                                                                                        # cat
 filter-facts
+acronymise
+hugo-fix-results
