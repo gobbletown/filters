@@ -1,6 +1,6 @@
 filter-things.sh                                                                    # keep this at the top, so it's the default
 f-irc
-q -ftln                                                                             # quote ftln # lines
+q -ftln                                                                             # quote ftln                                                                                                 # lines
 uq -ftln                                                                            # unquote ftln
 q                                                                                   # quote
 qne                                                                                 # quote no outside quotes
@@ -8,13 +8,13 @@ uq                                                                              
 urlencode                                                                           # first argument only
 urldecode                                                                           # first argument only
 scrape "[^\"<>]+" | filter-urls.sh | uniqnosort
-sed "s/\\(\\]\\]\\)/\\1\\n/" | sed -n "s/^.*\\(\\[\\[.*\\]\\]\\).*$/\\1/p"                       # filter org links
+sed "s/\\(\\]\\]\\)/\\1\\n/" | sed -n "s/^.*\\(\\[\\[.*\\]\\]\\).*$/\\1/p"          # filter org links
 cat-urls.sh
 filter-urls.sh | uniqnosort                                                         # filter urls and strip url parameters
 xurls | uniqnosort                                                                  # filter urls and strip url parameters
 org clink
 get-1-grams.sh
-sed "s/\\s\\+/\\n/g" | sed '/^$/d'                                                     # split by whitespace
+sed "s/\\s\\+/\\n/g" | sed '/^$/d'                                                  # split by whitespace
 extract-queries-from-google-url-contained.sh
 dedup-prefixes.sh
 dedup-prefixes.sh " "                                                               # dedup with spaces whitespace
@@ -23,15 +23,15 @@ unminimise.sh
 cat
 scrape | sed '/^$/d'
 scrape "\\w+" | sed '/^$/d'
-scrape "\\w+" | sort | uniq | sed '/^$/d'                                            # words sorted uniquely
-scrape "\\w+" | sort | sed '/^$/d'                                                   # words sorted, just words (non-u)
+scrape "\\w+" | sort | uniq | sed '/^$/d'                                           # words sorted uniquely
+scrape "\\w+" | sort | sed '/^$/d'                                                  # words sorted, just words (non-u)
 scrape '[^ ]+' | sed '/^$/d'                                                        # full words - split by whitespace
 path-candidates.sh | print-line-if-path-exists.sh | uniqnosort                      # filter partial paths files
 path-candidates.sh | print-line-if-which.sh | uniqnosort                            # filter partial which
 path-candidates.sh | print-line-if-locate.sh | uniqnosort                           # filter partial locate
 print-line-if-which.sh                                                              # filter which
-scrape "\\d+" | sed '/^$/d'                                                          # digits
-scrape "\\d+" | sort | uniq | sed '/^$/d'                                            # digits sorted unique
+scrape "\\d+" | sed '/^$/d'                                                         # digits
+scrape "\\d+" | sort | uniq | sed '/^$/d'                                           # digits sorted unique
 scrape '[A-Z_][A-Z_]+' | sed '/^$/d'                                                # capital words
 scrape '[a-zA-Z]+' | sed '/^$/d'                                                    # alphabetical
 scrape '[a-zA-Z0-9]+' | sed '/^$/d'                                                 # alphanumeric
@@ -48,19 +48,19 @@ sort | uniq                                                                     
 uniqnosort                                                                          # nosort uniq unchanged
 uniqnosort-reverse.sh                                                               # nosort uniq reverse unchanged
 remove-comment-lines-after-first-line.sh
-sed "2,${/^\\x23/d}"                                                                 # remove comment lines after first line
+sed "2,${/^\\x23/d}"                                                                # remove comment lines after first line
 sed -n "1p;2,${/^[^\\x23]/p}"
-sed "s/\\$/\\\\\\$/g"                                                                   # escape dollar
+sed "s/\\$/\\\\\\$/g"                                                               # escape dollar
 sed '/^$/d'                                                                         # remove empty lines
 remove-leading-and-trailing-spaces.sh
 remove-trailing-spaces.sh
 first-column-field-1-space                                                          # first   column field 1 space
-remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 2                # second  column field 2 space
-remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 3                # third   column field 3 space
-remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 4                # fourth  column field 4 space
-remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 5                # fifth   column field 5 space
-remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 6                # sixth   column field 6 space
-remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 7                # seventh column field 7 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 2               # second  column field 2 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 3               # third   column field 3 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 4               # fourth  column field 4 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 5               # fifth   column field 5 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 6               # sixth   column field 6 space
+remove-leading-and-trailing-spaces.sh | print-field.sh -d "[\\t ]*" 7               # seventh column field 7 space
 remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 1                     # first   column field 1 one space
 remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 2                     # second  column field 2 one space
 remove-leading-and-trailing-spaces.sh | print-field.sh -d ' ' 3                     # third   column field 3 one space
@@ -75,13 +75,13 @@ remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 4                 
 remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 5                     # fifth   column field 5 commas
 remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 6                     # sixth   column field 6 commas
 remove-leading-and-trailing-spaces.sh | print-field.sh -d ',' 7                     # seventh column field 7 commas
-remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 1                # first   column field 1 tabs
-remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 2                # second  column field 2 tabs
-remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 3                # third   column field 3 tabs
-remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 4                # fourth  column field 4 tabs
-remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 5                # fifth   column field 5 tabs
-remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 6                # sixth   column field 6 tabs
-remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 7                # seventh column field 7 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 1               # first   column field 1 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 2               # second  column field 2 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 3               # third   column field 3 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 4               # fourth  column field 4 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 5               # fifth   column field 5 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 6               # sixth   column field 6 tabs
+remove-leading-and-trailing-spaces.sh | print-field.sh -d " *\\t *" 7               # seventh column field 7 tabs
 htmlentities-decode.sh                                                              # decode htmlentities
 remove-first-field-print-result.sh ' '
 print-line-if-file-exists.sh
@@ -92,12 +92,12 @@ clean                                                                           
 erase-trailing-whitespace                                                           # tail for each line
 remove-starting-and-trailing-whitespace.sh                                          # erase leading and trailing whitespace for each line
 sed '/./,$!d'                                                                       # Delete all leading blank lines at top of file (only).
-sed -e :a -e "/^\\n*$/{$d;N;};/\\n$/ba"                                               # Delete all trailing blank lines at end of file (only).
-sed -e :a -e "/./,$!d;/^\\n*$/{$d;N;};/\\n$/ba"                                       # Delete leading and trailing newlines
+sed -e :a -e "/^\\n*$/{$d;N;};/\\n$/ba"                                             # Delete all trailing blank lines at end of file (only).
+sed -e :a -e "/./,$!d;/^\\n*$/{$d;N;};/\\n$/ba"                                     # Delete leading and trailing newlines
 remove-leading-and-trailing-newlines.sh
 f-efw | remove-leading-and-trailing-newlines.sh                                     # remove all leading and trailing starting and ending whitespace (no chomp)
 efs                                                                                 # remove all leading and trailing starting and ending whitespace and chomp
-sed "/\\/\\.git\\//d"                                                                  # no git
+sed "/\\/\\.git\\//d"                                                               # no git
 delete-up-to.sh ,
 delete-up-to.sh |
 delete-up-to.sh ;
@@ -108,7 +108,7 @@ unquote.pl
 uq                                                                                  # unquote
 asciionly
 remove-hash-comments.sh
-sed "s/\\s*\\(\\x23.*\\)$/ \\1/"                                                         # remove spaces before hash
+sed "s/\\s*\\(\\x23.*\\)$/ \\1/"                                                    # remove spaces before hash
 ( wd="$(pwd)" 0<&-; umn | sed 's/^'$(echo -n -E "$wd" | sedhex)'//' )               # remove leading working directory
 pad-lines-equal-length.sh
 scrape-file-dirs.sh                                                                 # fn2dn, show dirnames / directories
@@ -124,7 +124,7 @@ cut -c -80 -                                                                    
 cut -c 1-10                                                                         # truncate lines to first 10 characters
 cut -c 1-6 -                                                                        # truncate lines to first 6 characters
 sed -n "/\\bagi\\b/p"
-sed "s/\\([0-9]\\+\\)\\([^[0-9]*\\)\\([0-9]\\+\\)/\\3\\2\\1/"                                  # swap fg and bg decimal
+sed "s/\\([0-9]\\+\\)\\([^[0-9]*\\)\\([0-9]\\+\\)/\\3\\2\\1/"                       # swap fg and bg decimal
 sed -z 's/^\n\+//'                                                                  # remove starting newlines
 sed -z 's/^\s\+//'                                                                  # remove starting whitespace lines
 sed -z 's/\n\+$//'                                                                  # remove trailing newlines
@@ -305,11 +305,11 @@ sed -E 's_(\\+)_\\\1_g'                                                         
 iff-double-then-single-space.sh                                                     # iff DOUBLE space only then single space
 max-double-spaced-no-trailing                                                       # max double space line (no trailing whitespace)
 max-double-spaced.sh                                                                # max double space line
-sed "s/^\\s\\+$//" | max-one-empty-line.sh                                                               # ditto ^^
+sed "s/^\\s\\+$//" | max-one-empty-line.sh                                          # ditto ^^
 f-efw | compact-newlines.sh                                                         # iff DOUBLE space only then single space, then max double space line. compact. compress
 wrla open-org                                                                       # url2org
-vmac "vi\"x0v$p"                                                                     # contents of first pair of double quotes ""
-awk "!($3=\"\")"                                                                      # remove column 3
+vmac "vi\"x0v$p"                                                                    # contents of first pair of double quotes ""
+awk "!($3=\"\")"                                                                    # remove column 3
 remove-prefix "`pwd`/"
 spaces-to-tabs
 awk -F '\t' 'BEGIN {OFS="\t"} {$1=$3=""; print $0}'                                 # remove columns 1 and 3
@@ -325,7 +325,8 @@ f-file-contains "NewSharedInformerFactory"
 sort -n -t . -k3,3 -k2,2 -k1,1                                                      # sort by date
 filter-facts
 rosie grep -o subs net.ipv4                                                         # ipv4 address
-tr "[\"']" ' ' | rosie grep -o subs net.email                                       # email address
+tr "[\"'()]" ' ' | rosie grep -o subs net.email                                     # email address
+rosie grep -o subs net.path # path fragments
 scrape-emails
 rosie-ips
 rosie grep -o subs net.url_common                                                   # urls
@@ -352,6 +353,7 @@ remove-surrounding-quotes
 segment-sentences
 tr '[<\[({]' '[>\])}]')"                                                            # caesar cipher
 surround "("                                                                        # parentheses
+surround-paren-lines
 wrlp surround "("                                                                   # parentheses lines
 surround "\""                                                                       # quotes
 surround "{"                                                                        # braces
@@ -422,7 +424,6 @@ tabulate
 sed "2q;d"                                                                          # 2nd line nth line                                                                                          # faster than -n
 python2to3
 wrlp yt-search                                                                      # youtube query to url
-bs "\$\\"                                                                           # Escape for yasnippet
 filter-text-files-only
 filter-out-binary
 bird2code                                                                           # https://wiki.haskell.org/Literate_programming
@@ -431,3 +432,5 @@ pylanguagetool
 hugo-fix-results
 unslugify
 hindent
+bs "\$\\"                                                                           # Escape for yasnippet
+esc "\$"                                                                            # yas escape
