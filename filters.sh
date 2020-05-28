@@ -90,6 +90,7 @@ print-line-if-directory-exists.sh
 erase-starting-whitespace                                                           # remove leading whitespace for each line
 clean                                                                               # remove leading whitespace for each line
 erase-trailing-whitespace                                                           # tail for each line
+ew                                                                                  # erase leading and trailing whitespace for each line
 remove-starting-and-trailing-whitespace.sh                                          # erase leading and trailing whitespace for each line
 sed '/./,$!d'                                                                       # Delete all leading blank lines at top of file (only).
 sed -e :a -e "/^\\n*$/{$d;N;};/\\n$/ba"                                             # Delete all trailing blank lines at end of file (only).
@@ -326,10 +327,11 @@ sort -n -t . -k3,3 -k2,2 -k1,1                                                  
 filter-facts
 rosie grep -o subs net.ipv4                                                         # ipv4 address
 tr "[\"'()]" ' ' | rosie grep -o subs net.email                                     # email address
-rosie grep -o subs net.path # path fragments
+rosie grep -o subs net.path                                                         # path fragments
 scrape-emails
 rosie-ips
 rosie grep -o subs net.url_common                                                   # urls
+rosie grep -o subs all.things                                                       # extract all the things
 rosie match all.things                                                              # color highlight anything
 rosie-urls
 rosie-urls-context
@@ -417,6 +419,7 @@ sed "s/Abstract:/&\n\n/" | text-to-paras                                        
 patm -r "\\[\\[\\\$[^\\]]*\\]" umn                                                  # fix org mode links -- unminimise them
 space-to-org-table
 spaces-to-org-table
+tsv2org-table
 ftfy                                                                                # fixes text for you https://pypi.org/project/ftfy/
 sed "s/\[[0-9]\+\]//g"                                                              # remove wiki href links [1]
 ttp                                                                                 # text-to-paras
@@ -432,5 +435,15 @@ pylanguagetool
 hugo-fix-results
 unslugify
 hindent
-bs "\$\\"                                                                           # Escape for yasnippet
+bs "\$\\\("                                                                           # Escape for yasnippet
 esc "\$"                                                                            # yas escape
+awk -- "++c%2"                                                                      # Delete every 2nd (even) line
+awk -- "c++%2"                                                                      # Delete every 2nd (odd) line
+split-pipe-multiline
+acronymise
+rosie-extract-paths
+gen-qdot
+grex  # generate regex
+definition-list-to-formatted-definitions.sh
+sps siq
+sps awkward

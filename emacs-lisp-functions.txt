@@ -11,3 +11,5 @@ bp c ascify
 bp xurls | s chomp
 bp ${GOPATH%%:*}/bin/xurls
 json-encode-string
+(lambda (s) (s-replace-regexp "\t" (s-repeat default-tab-width " ") s)) # emacs untabify
+my-untabify
