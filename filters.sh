@@ -308,6 +308,7 @@ max-double-spaced-no-trailing                                                   
 max-double-spaced.sh                                                                # max double space line
 sed "s/^\\s\\+$//" | max-one-empty-line.sh                                          # ditto ^^
 f-efw | compact-newlines.sh                                                         # iff DOUBLE space only then single space, then max double space line. compact. compress
+compact-newlines.sh                                                                 # Single space max
 wrla open-org                                                                       # url2org
 vmac "vi\"x0v$p"                                                                    # contents of first pair of double quotes ""
 awk "!($3=\"\")"                                                                    # remove column 3
@@ -435,7 +436,7 @@ pylanguagetool
 hugo-fix-results
 unslugify
 hindent
-bs "\$\\\("                                                                           # Escape for yasnippet
+bs "\$\\\("                                                                         # Escape for yasnippet
 esc "\$"                                                                            # yas escape
 awk -- "++c%2"                                                                      # Delete every 2nd (even) line
 awk -- "c++%2"                                                                      # Delete every 2nd (odd) line
@@ -443,7 +444,12 @@ split-pipe-multiline
 acronymise
 rosie-extract-paths
 gen-qdot
-grex  # generate regex
+grex                                                                                # generate regex
 definition-list-to-formatted-definitions.sh
 sps siq
 sps awkward
+sed -u -z 's/[a-z]/\U&/g'                                                           # to uppercase
+sed -u -z 's/[a-z]/\U&/g'                                                           # to lowercase
+aatr -k '                                                                           # ' "nl | awk 1"                                                                                             # Number lines between hashes
+sed 's/ / /g'                                                                       # No invisible whitespace
+cut -d ' ' -f2-                                                                     # Remove first word
