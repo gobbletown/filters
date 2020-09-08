@@ -149,6 +149,7 @@ tr '[:lower:]' '[:upper:]'                                                      
 s capitalize                                                                        # uppercase capitalize first letter of each word
 s capitalize-sentences                                                              # uppercase capitalize first letter of first word
 tr '[:upper:]' '[:lower:]'                                                          # lowercase insensitive
+awk '{print tolower($0)}')                                                          # lowercase
 sed 's/.*/\L&/'                                                                     # GNU sed lowercase
 sed 's/^/\t/'                                                                       # indent
 sed 's/\/$//'                                                                       # strip trailing directory slash
@@ -436,7 +437,8 @@ pylanguagetool
 hugo-fix-results
 unslugify
 hindent
-bs "\$\\\("                                                                         # Escape for yasnippet
+escape-for-yasnippet
+bs "\`\$\\\("                                                                       # Escape for yasnippet
 esc "\$"                                                                            # yas escape
 awk -- "++c%2"                                                                      # Delete every 2nd (even) line
 awk -- "c++%2"                                                                      # Delete every 2nd (odd) line
@@ -450,6 +452,20 @@ sps siq
 sps awkward
 sed -u -z 's/[a-z]/\U&/g'                                                           # to uppercase
 sed -u -z 's/[a-z]/\U&/g'                                                           # to lowercase
-aatr -k '                                                                           # ' "nl | awk 1"                                                                                             # Number lines between hashes
+number-lines-between-hashes                                                         # Number lines between hashes
 sed 's/ / /g'                                                                       # No invisible whitespace
 cut -d ' ' -f2-                                                                     # Remove first word
+tr -s " "                                                                           # squeeze max one space
+glob-grep "*.*"                                                                     # file paths with extensions
+filter-until-unchanged "sed 's/catcat/cat/'"
+lines-to-args                                                                       # newline delimited strings to arguments
+camel2snake                                                                         # camel case to snake case
+grep-output-get-paths
+scrape-irc-channels
+sed 's/ / /g'                                                                       # nonbsp
+edm -m! ":\%s/^/hi/\\<CR>"                                                          # stream through vim macro
+edm -m! ":\%s/.*/(\&)"                                                              # Surround with parens
+filter-duckling-times
+rosie-scrape net.MAC
+rosie-scrape date.dashed
+jq -R "[.,input]"                                                                   # consecutive pairs to json
