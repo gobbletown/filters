@@ -292,6 +292,7 @@ sed '$!N; /^\(.*\)\n\1$/!P; D'                                                  
 perl -ne 'print if ! $a{$_}++'                                                      # uniq deduplicate consecutive
 perl -lne 's/\s*$//; print if ! $a{$_}++'                                           # remove whitespace and uniq deduplicate consecutive
 xargs -l1 sha                                                                       # sha each line
+pv -L 3k                                                                            # rate limit 3k per second
 mbuffer -m 1024M                                                                    # buffer 1G
 pv -pterbTCB 1G                                                                     # bufer 1G with progress
 buffer -m 1024M                                                                     # buffer 1G
@@ -469,3 +470,13 @@ filter-duckling-times
 rosie-scrape net.MAC
 rosie-scrape date.dashed
 jq -R "[.,input]"                                                                   # consecutive pairs to json
+rosie-scrape 'findall:{net.any <".com"}'
+hash-crc32
+crc-lines
+throttle-lines 1
+throttle-lines 0.2
+org-clink-urls-within
+org-unclink | org-clink-urls-within
+bb -i '(take 2 *input*)'                                                            # clojure filter
+bb -i '*input*'                                                            # clojure token list
+org-unclink
