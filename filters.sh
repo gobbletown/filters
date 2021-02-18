@@ -383,7 +383,10 @@ scrape '"([^"]+)"' | uq                                                         
 scrape-string "'"                                                                   # Scrape single quoted strings contents
 scrape-string '"'                                                                   # Scrape double quoted strings contents
 snake-case2camel-case
-spinal-case2camel-case
+spinal-case2snake-case
+kebab-case2snake-case
+lisp-case2snake-case
+dash-case2snake-case
 tr -d '\000'                                                                        # Remove null bytes
 remove-null-bytes
 filter-verbose-facts
@@ -478,5 +481,11 @@ throttle-lines 0.2
 org-clink-urls-within
 org-unclink | org-clink-urls-within
 bb -i '(take 2 *input*)'                                                            # clojure filter
-bb -i '*input*'                                                            # clojure token list
+bb -i '*input*'                                                                     # clojure token list
 org-unclink
+translate-to-english
+indent4-to-tabs
+indent4-to-checklist
+melee-translate
+url-basename
+tail -c +9                                                                          # skip the first 8 bytes
