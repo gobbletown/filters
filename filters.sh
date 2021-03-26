@@ -114,6 +114,7 @@ sed "s/\\s*\\(\\x23.*\\)$/ \\1/"                                                
 pad-lines-equal-length.sh
 scrape-file-dirs.sh                                                                 # fn2dn, show dirnames / directories
 scrape-files.sh
+filter-files-media-only
 scrape-files-fast.sh
 scrape-dirs.sh
 scrape-dirs-fast.sh
@@ -201,7 +202,8 @@ sed 's/\s\s\+/\n/g' | sed '/^$/d' | sed -n '/[a-zA-Z0-9]/p'                     
 sed 's/[^0-9a-zA-Z ]\+//g'                                                          # strip non-alphanumeric
 sort-by-occurence.sh _                                                              # sort tmux sessions by depth
 sort-by-occurence.sh /                                                              # sort paths by depth
-sort-by-line-length.sh
+sort-by-line-length
+perl -e 'print sort { length($b) <=> length($a) } <>'                               # sort by line length
 s indent 1
 s indent 2
 s indent 5
@@ -371,6 +373,7 @@ perl -p -e "s/../../g"                                                          
 perl -p -e "s/([a-z])/\\\\\$1/g"
 fel eval 'echo "$(cat) * 3" | bc'                                                   # triple
 math-times 1000
+human2bytes
 bytes2human
 scrape-py '\d+'                                                                     # python regex
 csvcut -c "1,8"                                                                     # columns 1 and 8 of csv
@@ -489,3 +492,5 @@ indent4-to-checklist
 melee-translate
 url-basename
 tail -c +9                                                                          # skip the first 8 bytes
+scrape-crontab
+sort-by-frequency
