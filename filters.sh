@@ -16,8 +16,7 @@ org clink
 get-1-grams.sh
 sed "s/\\s\\+/\\n/g" | sed '/^$/d'                                                  # split by whitespace
 extract-queries-from-google-url-contained.sh
-dedup-prefixes.sh
-dedup-prefixes.sh " "                                                               # dedup with spaces whitespace
+dedup-prefixes
 minimise.sh
 unminimise.sh
 cat
@@ -494,3 +493,5 @@ url-basename
 tail -c +9                                                                          # skip the first 8 bytes
 scrape-crontab
 sort-by-frequency
+snake-case2spinal-case
+frangipanni
